@@ -1,0 +1,557 @@
+import type { ContentPack } from "@/core/types";
+import type { Leccion } from "@/features/habilidades/domain/types";
+
+const filosofia: ContentPack<Leccion> = {
+  id: "filosofia",
+  module: "habilidades",
+  version: 1,
+  locale: "es",
+  title: "Filosofía",
+  items: [
+    {
+      id: "argumentos-falacias",
+      titulo: "Argumentos y falacias",
+      descripcion: "Separar premisas y conclusión, y reconocer razonamientos tramposos.",
+      nivel: 2,
+      minutos: 10,
+      objetivos: [
+        "Identificar las premisas y la conclusión de un argumento.",
+        "Reconocer falacias frecuentes: ad hominem, hombre de paja, falso dilema y pendiente resbaladiza.",
+      ],
+      explicacion: [
+        "Un argumento es un conjunto de afirmaciones (premisas) que se ofrecen como razones para aceptar otra (conclusión). Palabras como «por tanto» o «así que» suelen introducir la conclusión; «porque» o «ya que», las premisas.",
+        "Una falacia es un razonamiento que parece convincente pero no apoya realmente su conclusión. Ad hominem: atacar a la persona en vez de a sus razones. Hombre de paja: deformar la postura del otro para refutarla con facilidad. Falso dilema: presentar solo dos opciones cuando hay más. Pendiente resbaladiza: afirmar sin apoyo que un paso llevará inevitablemente a una cadena de consecuencias cada vez peores.",
+        "Cuidado con el exceso contrario: no todo lo que se parece a una falacia lo es. Apoyarse en un experto en su campo es razonable, y algunas cadenas de consecuencias están bien fundamentadas. La pregunta clave es siempre: ¿estas razones apoyan de verdad esta conclusión?",
+      ],
+      ejemplo: {
+        enunciado: "Analiza: «No hagas caso a Marta sobre el cambio climático: ni siquiera tiene coche eléctrico».",
+        pasos: [
+          "Conclusión: no hay que hacer caso a Marta sobre el cambio climático.",
+          "Premisa: Marta no tiene coche eléctrico.",
+          "La premisa habla de la conducta de Marta, no de sus razones ni de sus datos. Aunque fuera incoherente, sus argumentos podrían ser correctos.",
+          "Es un ad hominem (en su variante «tú también»).",
+        ],
+      },
+      intento: {
+        ejercicio: {
+          tipo: "opcion-multiple",
+          id: "intento-identificar-falacia",
+          enunciado: "Pedro: «Deberíamos reducir el tráfico en el centro». Luis: «O sea, que quieres prohibir los coches y que nadie pueda ir a trabajar». ¿Qué falacia comete Luis?",
+          opciones: [
+            { id: "a", texto: "Hombre de paja" },
+            { id: "b", texto: "Ad hominem", retro: "Luis no ataca a Pedro como persona: deforma su propuesta." },
+            { id: "c", texto: "Falso dilema", retro: "No plantea dos únicas opciones; exagera lo que dijo Pedro." },
+            { id: "d", texto: "Pendiente resbaladiza", retro: "No encadena consecuencias cada vez peores: atribuye a Pedro una postura que no defendió." },
+          ],
+          correcta: "a",
+          explicacion: "Pedro habló de reducir el tráfico; Luis responde a «prohibir los coches», una versión extrema y más fácil de rechazar.",
+        },
+        pistas: [
+          "Compara lo que dijo Pedro con lo que Luis dice que dijo.",
+          "¿Ataca Luis a Pedro como persona, o cambia el contenido de su propuesta?",
+          "Luis sustituye «reducir el tráfico» por «prohibir los coches». ¿Qué falacia consiste en deformar la postura del otro?",
+        ],
+        solucion: [
+          "Postura real de Pedro: reducir el tráfico en el centro.",
+          "Postura que Luis refuta: prohibir los coches.",
+          "Refutar una versión deformada y más débil es la falacia del hombre de paja.",
+        ],
+      },
+      ejercicios: [
+        {
+          tipo: "opcion-multiple",
+          id: "conclusion-ballenas",
+          enunciado: "«Como todos los mamíferos respiran aire y las ballenas son mamíferos, las ballenas respiran aire». ¿Cuál es la conclusión?",
+          opciones: [
+            { id: "a", texto: "Las ballenas respiran aire." },
+            { id: "b", texto: "Todos los mamíferos respiran aire.", retro: "Es una premisa: va introducida por «como» y sirve de razón." },
+            { id: "c", texto: "Las ballenas son mamíferos.", retro: "Es la segunda premisa." },
+          ],
+          correcta: "a",
+          explicacion: "Las dos primeras afirmaciones son las razones; la última es lo que se concluye a partir de ellas.",
+        },
+        {
+          tipo: "opcion-multiple",
+          id: "falso-dilema",
+          enunciado: "«O estás con nosotros, o estás contra nosotros». ¿Qué falacia es?",
+          opciones: [
+            { id: "a", texto: "Falso dilema" },
+            { id: "b", texto: "Hombre de paja", retro: "No deforma la postura de nadie; reduce las opciones a dos." },
+            { id: "c", texto: "Ad hominem", retro: "No ataca a ninguna persona." },
+          ],
+          correcta: "a",
+          explicacion: "Ignora otras posiciones: neutralidad, apoyo parcial, desacuerdo en algunos puntos…",
+        },
+        {
+          tipo: "opcion-multiple",
+          id: "pendiente-resbaladiza",
+          enunciado: "«Si dejamos usar el móvil en el recreo, pronto lo usarán en clase, después en los exámenes y acabarán sin aprender nada». ¿Qué falacia es, si no se aporta ninguna prueba de esa cadena?",
+          opciones: [
+            { id: "a", texto: "Pendiente resbaladiza" },
+            { id: "b", texto: "Falso dilema", retro: "No presenta dos opciones excluyentes, sino una cadena de consecuencias." },
+            { id: "c", texto: "Apelación a la autoridad", retro: "No se invoca a ninguna autoridad." },
+          ],
+          correcta: "a",
+          explicacion: "Cada paso de la cadena se da por seguro sin justificarlo. Si hubiera pruebas de cada eslabón, sería un argumento a considerar.",
+        },
+        {
+          tipo: "verdadero-falso",
+          id: "citar-experto",
+          enunciado: "Citar a un experto siempre es una falacia de autoridad.",
+          esVerdadera: false,
+          justificaciones: [
+            { id: "j1", texto: "Apoyarse en expertos en su campo es razonable; la falacia es apelar a alguien ajeno al tema o tratar su palabra como prueba definitiva." },
+            { id: "j2", texto: "Cualquier apelación a otra persona es falaz.", retro: "Gran parte de lo que sabemos se apoya en el testimonio de expertos; lo que importa es su pertinencia y fiabilidad." },
+          ],
+          justificacionCorrecta: "j1",
+          explicacion: "Un premio Nobel de Física opinando sobre nutrición no es una autoridad pertinente; un consenso de especialistas en su campo sí es una buena razón.",
+        },
+      ],
+      recuperacion: [
+        {
+          tipo: "texto",
+          id: "nombre-ad-hominem",
+          enunciado: "¿Cómo se llama la falacia que ataca a la persona en lugar de a su argumento?",
+          aceptadas: ["ad hominem", "falacia ad hominem", "argumento ad hominem"],
+          erroresComunes: [{ respuesta: "hombre de paja", retro: "El hombre de paja deforma el argumento; el ad hominem ataca a la persona." }],
+          explicacion: "Ad hominem significa «contra la persona».",
+        },
+        {
+          tipo: "texto",
+          id: "nombre-hombre-paja",
+          enunciado: "¿Qué falacia deforma la postura del otro para refutarla con más facilidad?",
+          aceptadas: ["hombre de paja", "falacia del hombre de paja", "espantapájaros", "falacia del espantapájaros"],
+          erroresComunes: [{ respuesta: "ad hominem", retro: "Ad hominem ataca a la persona; aquí se deforma lo que dijo." }],
+          explicacion: "Se «construye» un rival débil (de paja) más fácil de derribar.",
+        },
+        {
+          tipo: "opcion-multiple",
+          id: "partes-argumento",
+          enunciado: "Las partes de un argumento son…",
+          opciones: [
+            { id: "a", texto: "premisas y conclusión." },
+            { id: "b", texto: "pregunta y respuesta.", retro: "Una pregunta no es un argumento; hacen falta razones y algo que se concluye." },
+            { id: "c", texto: "opinión y emoción.", retro: "Un argumento ofrece razones; las emociones pueden acompañar, pero no son sus partes." },
+          ],
+          correcta: "a",
+          explicacion: "Las premisas son las razones; la conclusión, lo que se quiere justificar.",
+        },
+      ],
+      resumen: [
+        "Argumento = premisas (razones) + conclusión.",
+        "Ad hominem ataca a la persona; hombre de paja deforma su postura.",
+        "Falso dilema reduce las opciones; pendiente resbaladiza encadena consecuencias sin pruebas.",
+        "No todo lo que lo parece es falaz: pregunta siempre si las razones apoyan la conclusión.",
+      ],
+    },
+    {
+      id: "logica-basica",
+      titulo: "Lógica: validez y formas de inferencia",
+      descripcion: "Modus ponens, modus tollens y los dos errores formales más comunes.",
+      nivel: 3,
+      minutos: 10,
+      objetivos: [
+        "Distinguir validez (forma) de verdad (contenido) y de solidez.",
+        "Reconocer modus ponens, modus tollens, afirmación del consecuente y negación del antecedente.",
+      ],
+      explicacion: [
+        "Un argumento es válido si es imposible que las premisas sean verdaderas y la conclusión falsa. La validez depende de la forma, no de que lo que se dice sea cierto. Un argumento es sólido si, además de válido, tiene todas sus premisas verdaderas.",
+        "Formas válidas. Modus ponens: si P, entonces Q; P; por tanto, Q. Modus tollens: si P, entonces Q; no Q; por tanto, no P.",
+        "Formas inválidas que se confunden con ellas. Afirmación del consecuente: si P, entonces Q; Q; por tanto, P. Negación del antecedente: si P, entonces Q; no P; por tanto, no Q. Para ver que no son válidas basta un contraejemplo.",
+      ],
+      ejemplo: {
+        enunciado: "«Si llueve, el suelo se moja. El suelo está mojado. Luego ha llovido». ¿Es válido?",
+        pasos: [
+          "Forma: si P, entonces Q; Q; por tanto, P.",
+          "Es la afirmación del consecuente: no es válida.",
+          "Contraejemplo: alguien ha regado. Las premisas son verdaderas y la conclusión, falsa.",
+        ],
+      },
+      intento: {
+        ejercicio: {
+          tipo: "opcion-multiple",
+          id: "intento-forma-cuadrado",
+          enunciado: "«Si una figura es un cuadrado, tiene cuatro lados. Esta figura no tiene cuatro lados. Por tanto, no es un cuadrado». ¿Cómo lo clasificas?",
+          opciones: [
+            { id: "a", texto: "Válido: modus tollens" },
+            { id: "b", texto: "Inválido: afirmación del consecuente", retro: "Eso sería concluir «es un cuadrado» a partir de «tiene cuatro lados»." },
+            { id: "c", texto: "Inválido: negación del antecedente", retro: "Eso sería concluir «no tiene cuatro lados» a partir de «no es un cuadrado»." },
+            { id: "d", texto: "Válido: modus ponens", retro: "Modus ponens afirma el antecedente («es un cuadrado») para concluir el consecuente." },
+          ],
+          correcta: "a",
+          explicacion: "Se niega el consecuente (no tiene cuatro lados) y se concluye la negación del antecedente (no es un cuadrado): modus tollens, válido.",
+        },
+        pistas: [
+          "Identifica P y Q en el condicional «si P, entonces Q».",
+          "P = «es un cuadrado» y Q = «tiene cuatro lados». La segunda premisa, ¿afirma o niega P? ¿O Q?",
+          "Se niega Q y se concluye no P. ¿Qué forma es «si P, entonces Q; no Q; por tanto, no P»?",
+        ],
+        solucion: [
+          "P = es un cuadrado; Q = tiene cuatro lados.",
+          "Premisas: si P, entonces Q; no Q.",
+          "Conclusión: no P. Es modus tollens, una forma válida.",
+        ],
+      },
+      ejercicios: [
+        {
+          tipo: "verdadero-falso",
+          id: "valido-conclusion-falsa",
+          enunciado: "Un argumento válido puede tener una conclusión falsa.",
+          esVerdadera: true,
+          justificaciones: [
+            { id: "j1", texto: "Sí, si alguna premisa es falsa: la validez solo garantiza que, si las premisas son verdaderas, la conclusión también lo es." },
+            { id: "j2", texto: "No, porque «válido» significa que la conclusión es verdadera.", retro: "Eso confunde validez con solidez. «Todos los peces vuelan; el atún es un pez; luego el atún vuela» es válido y su conclusión es falsa." },
+          ],
+          justificacionCorrecta: "j1",
+          explicacion: "Validez es una propiedad de la forma; la verdad de la conclusión depende también del contenido de las premisas.",
+        },
+        {
+          tipo: "opcion-multiple",
+          id: "negar-antecedente",
+          enunciado: "«Si estudio, apruebo. No he estudiado. Luego no apruebo». ¿Qué forma es?",
+          opciones: [
+            { id: "a", texto: "Negación del antecedente (inválida)" },
+            { id: "b", texto: "Modus tollens (válida)", retro: "Modus tollens niega el consecuente («no apruebo»), no el antecedente." },
+            { id: "c", texto: "Afirmación del consecuente (inválida)", retro: "Afirmar el consecuente sería partir de «apruebo»." },
+          ],
+          correcta: "a",
+          explicacion: "Se puede aprobar por otras vías (por ejemplo, si el examen es fácil): las premisas pueden ser verdaderas y la conclusión, falsa.",
+        },
+        {
+          tipo: "ordenar",
+          id: "construir-modus-ponens",
+          enunciado: "Ordena las frases para formar un modus ponens.",
+          pasos: [
+            { id: "p1", texto: "Si un número es múltiplo de 4, es par." },
+            { id: "p2", texto: "12 es múltiplo de 4." },
+            { id: "p3", texto: "Por tanto, 12 es par." },
+          ],
+          explicacion: "Primero el condicional, después se afirma el antecedente y por último se concluye el consecuente.",
+        },
+        {
+          tipo: "texto",
+          id: "completar-ponens",
+          enunciado: "Completa la forma válida: «Si P, entonces Q. P. Por tanto, …»",
+          aceptadas: ["Q"],
+          erroresComunes: [
+            { respuesta: "P", retro: "P ya es una premisa; lo que se concluye es el consecuente." },
+            { respuesta: "no Q", retro: "Con P afirmado, el condicional garantiza Q, no su negación." },
+          ],
+          explicacion: "Es el modus ponens: afirmado el antecedente, se sigue el consecuente.",
+        },
+      ],
+      recuperacion: [
+        {
+          tipo: "texto",
+          id: "nombre-tollens",
+          enunciado: "¿Cómo se llama la forma válida «si P, entonces Q; no Q; por tanto, no P»?",
+          aceptadas: ["modus tollens", "modus tollendo tollens"],
+          erroresComunes: [{ respuesta: "modus ponens", retro: "Modus ponens afirma P y concluye Q; aquí se niega Q." }],
+          explicacion: "Tollens viene del latín «quitar»: se niega el consecuente.",
+        },
+        {
+          tipo: "opcion-multiple",
+          id: "definicion-solido",
+          enunciado: "Un argumento sólido es…",
+          opciones: [
+            { id: "a", texto: "válido y con todas las premisas verdaderas." },
+            { id: "b", texto: "uno cuya conclusión nos convence.", retro: "Que convenza es psicológico; la solidez es lógica y factual." },
+            { id: "c", texto: "uno con muchas premisas.", retro: "El número de premisas no importa." },
+          ],
+          correcta: "a",
+          explicacion: "Un argumento sólido garantiza que su conclusión es verdadera.",
+        },
+        {
+          tipo: "verdadero-falso",
+          id: "afirmar-consecuente",
+          enunciado: "«Si P, entonces Q; Q; por tanto, P» es una forma válida.",
+          esVerdadera: false,
+          justificaciones: [
+            { id: "j1", texto: "Es la falacia de afirmar el consecuente: Q puede ser verdad por otras causas." },
+            { id: "j2", texto: "Es válida porque es simétrica al modus ponens.", retro: "El condicional no es simétrico: «si P, entonces Q» no implica «si Q, entonces P»." },
+          ],
+          justificacionCorrecta: "j1",
+          explicacion: "El suelo mojado no garantiza que haya llovido.",
+        },
+      ],
+      resumen: [
+        "Válido = imposible premisas verdaderas y conclusión falsa. Sólido = válido + premisas verdaderas.",
+        "Válidas: modus ponens y modus tollens.",
+        "Inválidas: afirmar el consecuente y negar el antecedente. Se refutan con un contraejemplo.",
+      ],
+    },
+    {
+      id: "etica-dilemas",
+      titulo: "Ética: pensar dilemas",
+      descripcion: "Tres grandes enfoques éticos aplicados a casos difíciles.",
+      nivel: 3,
+      minutos: 12,
+      objetivos: [
+        "Distinguir consecuencialismo, deontología y ética de la virtud.",
+        "Identificar qué principio está en juego en un dilema y argumentar con razones.",
+      ],
+      explicacion: [
+        "Consecuencialismo: una acción es correcta según sus consecuencias. Su versión clásica es el utilitarismo de Jeremy Bentham y John Stuart Mill: elegir lo que produzca el mayor bienestar total.",
+        "Deontología: hay deberes y límites que no dependen solo del resultado. Su referencia clásica es Immanuel Kant, que formuló la exigencia de tratar a la humanidad siempre como un fin y nunca solo como un medio. Ética de la virtud: su referencia clásica es Aristóteles; pregunta qué haría una persona de buen carácter y prudente en esa situación.",
+        "El dilema del tranvía lo planteó Philippa Foot en 1967 y lo desarrolló Judith Jarvis Thomson. Analizar un dilema no consiste en encontrar la respuesta «correcta» que todos aceptan, sino en ver qué principios entran en conflicto y dar razones. Personas razonables pueden llegar a conclusiones distintas.",
+      ],
+      ejemplo: {
+        enunciado: "Un tranvía sin frenos va hacia cinco personas. Puedes accionar una palanca y desviarlo a una vía donde hay una. ¿Qué dirían los enfoques?",
+        pasos: [
+          "Utilitarismo: accionar la palanca, porque se salvan cinco vidas a costa de una.",
+          "Deontología: muchas personas distinguen entre causar un daño y permitirlo. La versión en la que habría que empujar a alguien desde un puente para frenar el tranvía suele juzgarse peor, porque usa a esa persona como mero medio.",
+          "Ética de la virtud: atiende a cómo delibera alguien prudente y compasivo, y a qué dice la decisión sobre su carácter.",
+          "Lo valioso no es el veredicto, sino identificar qué principio pesa en cada respuesta.",
+        ],
+      },
+      intento: {
+        ejercicio: {
+          tipo: "opcion-multiple",
+          id: "intento-trasplante",
+          enunciado: "Una médica podría salvar a cinco pacientes trasplantándoles órganos de una persona sana que ha venido a una revisión, sin su consentimiento. Casi todo el mundo lo rechaza. ¿Qué principio expresa mejor ese rechazo?",
+          opciones: [
+            { id: "a", texto: "No se debe usar a una persona solo como medio, aunque mejore el resultado global." },
+            { id: "b", texto: "Hay que maximizar el bienestar total.", retro: "Un cálculo utilitarista simple apoyaría el trasplante (cinco frente a uno). El rechazo se apoya en otro principio, aunque algunos utilitaristas responden apelando a las consecuencias de perder la confianza en los médicos." },
+            { id: "c", texto: "Hay que obedecer siempre la ley vigente.", retro: "El rechazo no depende de la ley: aunque fuera legal, la mayoría lo seguiría viendo incorrecto." },
+          ],
+          correcta: "a",
+          explicacion: "El rechazo se explica sobre todo por un principio deontológico de inspiración kantiana: la persona sana sería tratada como un mero medio para fines ajenos.",
+        },
+        pistas: [
+          "Compara este caso con el de la palanca: el número de vidas es el mismo. ¿Qué cambia?",
+          "Aquí hay que actuar directamente sobre alguien que no ha consentido. ¿Qué enfoque pone límites que no dependen del resultado?",
+          "Kant formuló la exigencia de tratar a las personas siempre como fines y nunca solo como medios.",
+        ],
+        solucion: [
+          "Las consecuencias en número son iguales que en el caso de la palanca: cinco frente a uno.",
+          "Lo distinto es que se usaría el cuerpo de una persona, sin su consentimiento, como instrumento.",
+          "El principio que lo prohíbe es deontológico: no usar a nadie como mero medio.",
+        ],
+      },
+      ejercicios: [
+        {
+          tipo: "opcion-multiple",
+          id: "enfoque-consecuencias",
+          enunciado: "¿Qué enfoque juzga una acción principalmente por sus consecuencias?",
+          opciones: [
+            { id: "a", texto: "Consecuencialismo" },
+            { id: "b", texto: "Deontología", retro: "La deontología se centra en deberes y límites, no solo en resultados." },
+            { id: "c", texto: "Ética de la virtud", retro: "La ética de la virtud se centra en el carácter de quien actúa." },
+          ],
+          correcta: "a",
+          explicacion: "El utilitarismo es la forma más conocida de consecuencialismo.",
+        },
+        {
+          tipo: "opcion-multiple",
+          id: "clasificar-mentira",
+          enunciado: "«Mentir está mal aunque la mentira produzca un buen resultado». ¿A qué enfoque se parece más esta afirmación?",
+          opciones: [
+            { id: "a", texto: "Deontológico" },
+            { id: "b", texto: "Utilitarista", retro: "Para el utilitarismo, si la mentira produce más bienestar, podría estar justificada." },
+            { id: "c", texto: "Ninguno: es solo una opinión", retro: "Es una opinión, pero con una estructura reconocible: un deber que no depende del resultado." },
+          ],
+          correcta: "a",
+          explicacion: "Afirma un deber (no mentir) independiente de las consecuencias.",
+        },
+        {
+          tipo: "verdadero-falso",
+          id: "dilema-respuesta-unica",
+          enunciado: "Analizar un dilema ético consiste en encontrar la única respuesta que todo el mundo acepta.",
+          esVerdadera: false,
+          justificaciones: [
+            { id: "j1", texto: "Consiste en identificar los principios en conflicto y dar razones; personas razonables pueden discrepar." },
+            { id: "j2", texto: "Es verdadera: los dilemas siempre tienen una solución obvia.", retro: "Si la tuvieran, no serían dilemas: lo son precisamente porque hay razones de peso en ambos lados." },
+          ],
+          justificacionCorrecta: "j1",
+          explicacion: "Discrepar no significa que todo valga: unas razones son mejores que otras.",
+        },
+        {
+          tipo: "texto",
+          id: "aristoteles-virtud",
+          enunciado: "¿Qué filósofo griego es la referencia clásica de la ética de la virtud?",
+          aceptadas: ["Aristóteles"],
+          erroresComunes: [
+            { respuesta: "Platón", retro: "Platón también trata las virtudes, pero la referencia clásica de la ética de la virtud es Aristóteles (Ética a Nicómaco)." },
+            { respuesta: "Sócrates", retro: "Sócrates no dejó obra escrita; la teoría clásica de la virtud está en la Ética a Nicómaco de Aristóteles." },
+          ],
+          explicacion: "Su obra principal sobre ética es la Ética a Nicómaco.",
+        },
+      ],
+      recuperacion: [
+        {
+          tipo: "texto",
+          id: "kant-deontologia",
+          enunciado: "¿Qué filósofo es la referencia clásica de la deontología que exige tratar a las personas como fines y nunca solo como medios?",
+          aceptadas: ["Kant", "Immanuel Kant"],
+          explicacion: "Immanuel Kant (1724-1804).",
+        },
+        {
+          tipo: "opcion-multiple",
+          id: "utilitarismo-clasico",
+          enunciado: "El utilitarismo clásico (Bentham, Mill) propone…",
+          opciones: [
+            { id: "a", texto: "elegir la acción que produce el mayor bienestar total." },
+            { id: "b", texto: "cumplir siempre el deber, sean cuales sean las consecuencias.", retro: "Eso describe la deontología." },
+            { id: "c", texto: "imitar a una persona de buen carácter.", retro: "Eso se parece a la ética de la virtud." },
+          ],
+          correcta: "a",
+          explicacion: "Se suman los efectos sobre el bienestar de todos los afectados.",
+        },
+        {
+          tipo: "opcion-multiple",
+          id: "origen-tranvia",
+          enunciado: "¿Quién planteó originalmente, en 1967, el dilema del tranvía?",
+          opciones: [
+            { id: "a", texto: "Philippa Foot" },
+            { id: "b", texto: "Judith Jarvis Thomson", retro: "Thomson lo desarrolló y le dio el nombre con el que se popularizó, pero el planteamiento original es de Foot (1967)." },
+            { id: "c", texto: "Immanuel Kant", retro: "Kant vivió en el siglo XVIII; el dilema del tranvía es del siglo XX." },
+          ],
+          correcta: "a",
+          explicacion: "Philippa Foot lo planteó en un artículo de 1967 sobre el aborto y la doctrina del doble efecto.",
+        },
+      ],
+      resumen: [
+        "Consecuencialismo: importan los resultados (utilitarismo: mayor bienestar total).",
+        "Deontología: hay deberes y límites; no usar a nadie solo como medio (Kant).",
+        "Ética de la virtud: qué haría una persona prudente y de buen carácter (Aristóteles).",
+        "Un dilema se analiza identificando principios en conflicto y dando razones.",
+      ],
+    },
+    {
+      id: "epistemologia",
+      titulo: "Epistemología: ¿qué es saber algo?",
+      descripcion: "Creencia, verdad y justificación, y por qué acertar por suerte no es saber.",
+      nivel: 3,
+      minutos: 10,
+      objetivos: [
+        "Explicar el análisis clásico del conocimiento como creencia verdadera justificada.",
+        "Reconocer un caso tipo Gettier y valorar el testimonio como fuente.",
+      ],
+      explicacion: [
+        "La epistemología estudia el conocimiento y la justificación. Un análisis clásico, que se remonta al Teeteto de Platón, dice que saber que algo es así requiere tres cosas: creerlo, que sea verdad y tener una justificación (buenas razones).",
+        "En 1963 Edmund Gettier publicó casos en los que alguien tiene una creencia verdadera y justificada que, intuitivamente, no es conocimiento, porque acierta por suerte. Desde entonces se discute qué falta añadir.",
+        "Buena parte de lo que creemos procede del testimonio: libros, expertos, medios y también asistentes de IA. El testimonio puede justificar, pero su peso depende de la fiabilidad de la fuente en ese tema. Que una respuesta suene segura no es una prueba de que sea verdadera.",
+      ],
+      ejemplo: {
+        enunciado: "Miras un reloj que siempre ha funcionado bien y marca las tres. Son las tres, pero el reloj se paró ayer exactamente a esa hora. ¿Sabías la hora?",
+        pasos: [
+          "Creencia: crees que son las tres.",
+          "Verdad: efectivamente son las tres.",
+          "Justificación: el reloj solía ser fiable.",
+          "Aun así aciertas por casualidad. Es un ejemplo clásico de Bertrand Russell que anticipa los casos de Gettier.",
+        ],
+      },
+      intento: {
+        ejercicio: {
+          tipo: "opcion-multiple",
+          id: "intento-caso-gettier",
+          enunciado: "Lucía cree que su compañero está en la oficina porque ve su abrigo en la percha. En realidad el abrigo es de otra persona, pero su compañero sí está: llegó por otra puerta. ¿Qué muestra el caso?",
+          opciones: [
+            { id: "a", texto: "Una creencia verdadera y justificada que parece no ser conocimiento, porque acierta por suerte." },
+            { id: "b", texto: "Que Lucía sabe que su compañero está, porque su creencia es verdadera.", retro: "La verdad es necesaria, pero no suficiente: su razón para creerlo no está conectada con lo que la hace verdadera." },
+            { id: "c", texto: "Que la creencia de Lucía no está justificada.", retro: "Ver un abrigo que parece el suyo es una razón razonable; el problema es que acierta por casualidad." },
+            { id: "d", texto: "Que la creencia de Lucía es falsa.", retro: "Es verdadera: el compañero sí está en la oficina." },
+          ],
+          correcta: "a",
+          explicacion: "Cumple las tres condiciones clásicas, pero la conexión entre la razón y la verdad es accidental: es un caso tipo Gettier.",
+        },
+        pistas: [
+          "Comprueba una por una las tres condiciones: ¿lo cree?, ¿es verdad?, ¿tiene razones?",
+          "Las tres se cumplen. Entonces, ¿por qué dudamos de que lo sepa?",
+          "La razón (el abrigo) no tiene nada que ver con lo que hace verdadera la creencia (que llegó por otra puerta): acierta por suerte.",
+        ],
+        solucion: [
+          "Creencia: sí. Verdad: sí. Justificación: sí, el abrigo parecía el suyo.",
+          "Pero su razón no está conectada con el hecho: acierta por casualidad.",
+          "Es un caso tipo Gettier: creencia verdadera justificada que no parece conocimiento.",
+        ],
+      },
+      ejercicios: [
+        {
+          tipo: "opcion-multiple",
+          id: "analisis-clasico",
+          enunciado: "Según el análisis clásico, saber que algo es así requiere…",
+          opciones: [
+            { id: "a", texto: "creerlo, que sea verdad y estar justificado." },
+            { id: "b", texto: "estar completamente seguro.", retro: "La certeza subjetiva no basta: uno puede estar seguro y equivocarse." },
+            { id: "c", texto: "que lo diga una autoridad.", retro: "El testimonio puede ser una justificación, pero no es una condición del conocimiento." },
+          ],
+          correcta: "a",
+          explicacion: "Creencia, verdad y justificación.",
+        },
+        {
+          tipo: "verdadero-falso",
+          id: "verdad-no-basta",
+          enunciado: "Si una creencia es verdadera, entonces es conocimiento.",
+          esVerdadera: false,
+          justificaciones: [
+            { id: "j1", texto: "También hace falta justificación: acertar adivinando no es saber." },
+            { id: "j2", texto: "Es verdadera: lo único que importa es acertar.", retro: "Si adivinas un número de lotería y aciertas, no diríamos que lo sabías." },
+          ],
+          justificacionCorrecta: "j1",
+          explicacion: "La verdad es necesaria, pero no suficiente.",
+        },
+        {
+          tipo: "ordenar",
+          id: "evaluar-afirmacion",
+          enunciado: "Ordena los pasos para evaluar una afirmación antes de creerla.",
+          pasos: [
+            { id: "p1", texto: "Precisar qué afirma exactamente." },
+            { id: "p2", texto: "Preguntar qué razones o pruebas la apoyan." },
+            { id: "p3", texto: "Valorar la fiabilidad de esas razones y fuentes." },
+            { id: "p4", texto: "Ajustar tu grado de confianza a la fuerza de las pruebas." },
+          ],
+          explicacion: "No se trata de creer o no creer en bloque, sino de graduar la confianza según la justificación.",
+        },
+        {
+          tipo: "opcion-multiple",
+          id: "respuesta-ia",
+          enunciado: "Recibes una respuesta segura y bien redactada de un asistente de IA. En términos epistemológicos, ¿qué tienes?",
+          opciones: [
+            { id: "a", texto: "Un testimonio cuyo peso depende de la fiabilidad de la fuente en ese tema, y que conviene contrastar." },
+            { id: "b", texto: "Conocimiento garantizado, porque suena seguro.", retro: "El tono seguro no es una prueba de verdad." },
+            { id: "c", texto: "Nada: el testimonio nunca justifica.", retro: "Gran parte de lo que sabemos viene del testimonio; lo importante es evaluar su fiabilidad." },
+          ],
+          correcta: "a",
+          explicacion: "Trata la respuesta como trataría un buen investigador a cualquier testimonio: una pista a comprobar, no una prueba final.",
+        },
+      ],
+      recuperacion: [
+        {
+          tipo: "texto",
+          id: "nombre-epistemologia",
+          enunciado: "¿Qué rama de la filosofía estudia el conocimiento y la justificación?",
+          aceptadas: ["epistemología", "teoría del conocimiento", "gnoseología"],
+          erroresComunes: [{ respuesta: "ética", retro: "La ética estudia cómo debemos actuar; el conocimiento lo estudia la epistemología." }],
+          explicacion: "Del griego episteme, «conocimiento».",
+        },
+        {
+          tipo: "texto",
+          id: "autor-gettier",
+          enunciado: "¿Qué filósofo publicó en 1963 contraejemplos al análisis del conocimiento como creencia verdadera justificada?",
+          aceptadas: ["Gettier", "Edmund Gettier"],
+          explicacion: "Edmund Gettier, en un artículo de solo tres páginas.",
+        },
+        {
+          tipo: "opcion-multiple",
+          id: "tres-condiciones",
+          enunciado: "Los tres elementos del análisis clásico del conocimiento son…",
+          opciones: [
+            { id: "a", texto: "creencia, verdad y justificación." },
+            { id: "b", texto: "percepción, memoria y razón.", retro: "Son fuentes de conocimiento, no las condiciones del análisis clásico." },
+            { id: "c", texto: "duda, certeza y fe.", retro: "No forman parte del análisis clásico." },
+          ],
+          correcta: "a",
+          explicacion: "Creencia verdadera justificada.",
+        },
+      ],
+      resumen: [
+        "Análisis clásico: saber = creencia + verdad + justificación.",
+        "Los casos de Gettier (1963) muestran que acertar por suerte no parece saber.",
+        "El testimonio, también el de una IA, justifica según la fiabilidad de la fuente: contrástalo.",
+      ],
+    },
+  ],
+};
+
+export default filosofia;

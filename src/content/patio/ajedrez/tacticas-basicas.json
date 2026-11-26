@@ -1,0 +1,575 @@
+{
+  "id": "patio-ajedrez-tacticas-basicas",
+  "module": "patio",
+  "version": 1,
+  "locale": "es",
+  "title": "Tácticas básicas",
+  "items": [
+    {
+      "id": "mate-en-1-01",
+      "fen": "6k1/5ppp/8/8/8/8/5PPP/R5K1 w - - 0 1",
+      "solution": [
+        "a1a8"
+      ],
+      "theme": "mate-en-1",
+      "rating": 600
+    },
+    {
+      "id": "mate-en-1-10",
+      "fen": "rnbqkbnr/pppp1ppp/8/4p3/6P1/5P2/PPPPP2P/RNBQKBNR b KQkq g3 0 2",
+      "solution": [
+        "d8h4"
+      ],
+      "theme": "mate-en-1",
+      "rating": 600
+    },
+    {
+      "id": "mate-en-1-12",
+      "fen": "k7/8/1K6/8/8/8/8/7R w - - 0 1",
+      "solution": [
+        "h1h8"
+      ],
+      "theme": "mate-en-1",
+      "rating": 600
+    },
+    {
+      "id": "pieza-indefensa-01",
+      "fen": "4k3/8/8/3q4/8/8/8/3RK3 w - - 0 1",
+      "solution": [
+        "d1d5"
+      ],
+      "theme": "pieza-indefensa",
+      "rating": 600
+    },
+    {
+      "id": "mate-en-1-02",
+      "fen": "r5k1/5ppp/8/8/8/8/5PPP/6K1 b - - 0 1",
+      "solution": [
+        "a8a1"
+      ],
+      "theme": "mate-en-1",
+      "rating": 625
+    },
+    {
+      "id": "mate-en-1-13",
+      "fen": "7r/8/8/8/8/1k6/8/K7 b - - 0 1",
+      "solution": [
+        "h8h1"
+      ],
+      "theme": "mate-en-1",
+      "rating": 625
+    },
+    {
+      "id": "mate-en-1-03",
+      "fen": "7k/8/6K1/8/8/8/Q7/8 w - - 0 1",
+      "solution": [
+        "a2a8"
+      ],
+      "theme": "mate-en-1",
+      "rating": 650
+    },
+    {
+      "id": "mate-en-1-11",
+      "fen": "r1bqkb1r/pppp1ppp/2n2n2/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 4 4",
+      "solution": [
+        "h5f7"
+      ],
+      "theme": "mate-en-1",
+      "rating": 650
+    },
+    {
+      "id": "mate-en-1-14",
+      "fen": "k7/2R5/8/8/8/8/8/6KR w - - 0 1",
+      "solution": [
+        "h1h8"
+      ],
+      "theme": "mate-en-1",
+      "rating": 650
+    },
+    {
+      "id": "mate-en-1-18",
+      "fen": "1k6/ppp5/8/8/8/8/8/3Q2K1 w - - 0 1",
+      "solution": [
+        "d1d8"
+      ],
+      "theme": "mate-en-1",
+      "rating": 650
+    },
+    {
+      "id": "pieza-indefensa-02",
+      "fen": "4k3/8/8/8/2r5/8/3N4/4K3 w - - 0 1",
+      "solution": [
+        "d2c4"
+      ],
+      "theme": "pieza-indefensa",
+      "rating": 650
+    },
+    {
+      "id": "pieza-indefensa-03",
+      "fen": "4k3/3n4/8/2R5/8/8/8/4K3 b - - 0 1",
+      "solution": [
+        "d7c5"
+      ],
+      "theme": "pieza-indefensa",
+      "rating": 675
+    },
+    {
+      "id": "mate-en-1-17",
+      "fen": "k7/2P5/1K6/8/8/8/8/8 w - - 0 1",
+      "solution": [
+        "c7c8q"
+      ],
+      "alternatives": [
+        [
+          "c7c8r"
+        ]
+      ],
+      "theme": "mate-en-1",
+      "rating": 700
+    },
+    {
+      "id": "mate-en-1-06",
+      "fen": "6k1/5p1p/5BpQ/8/8/8/8/6K1 w - - 0 1",
+      "solution": [
+        "h6g7"
+      ],
+      "theme": "mate-en-1",
+      "rating": 750
+    },
+    {
+      "id": "mate-en-1-04",
+      "fen": "6rk/6pp/8/6N1/8/8/8/6K1 w - - 0 1",
+      "solution": [
+        "g5f7"
+      ],
+      "theme": "mate-en-1",
+      "rating": 800
+    },
+    {
+      "id": "mate-en-1-15",
+      "fen": "k7/pp6/8/8/8/8/1Q6/6KB w - - 0 1",
+      "solution": [
+        "b2b7"
+      ],
+      "alternatives": [
+        [
+          "b2h8"
+        ]
+      ],
+      "theme": "mate-en-1",
+      "rating": 800
+    },
+    {
+      "id": "horquilla-06",
+      "fen": "r3k3/8/8/3N4/8/8/8/4K3 w - - 0 1",
+      "solution": [
+        "d5c7",
+        "e8d7",
+        "c7a8"
+      ],
+      "theme": "horquilla",
+      "rating": 800
+    },
+    {
+      "id": "mate-en-1-05",
+      "fen": "6k1/8/8/8/6n1/8/6PP/6RK b - - 0 1",
+      "solution": [
+        "g4f2"
+      ],
+      "theme": "mate-en-1",
+      "rating": 825
+    },
+    {
+      "id": "mate-en-1-16",
+      "fen": "6kb/1q6/8/8/8/8/PP6/K7 b - - 0 1",
+      "solution": [
+        "b7b2"
+      ],
+      "alternatives": [
+        [
+          "b7h1"
+        ]
+      ],
+      "theme": "mate-en-1",
+      "rating": 825
+    },
+    {
+      "id": "mate-en-1-07",
+      "fen": "7k/7p/5N2/8/8/8/8/6RK w - - 0 1",
+      "solution": [
+        "g1g8"
+      ],
+      "theme": "mate-en-1",
+      "rating": 850
+    },
+    {
+      "id": "horquilla-03",
+      "fen": "4k3/8/2n1b3/8/2PP4/8/8/4K3 w - - 0 1",
+      "solution": [
+        "d4d5",
+        "c6e5",
+        "d5e6"
+      ],
+      "theme": "horquilla",
+      "rating": 850
+    },
+    {
+      "id": "horquilla-04",
+      "fen": "r5k1/6pp/8/8/8/8/5PPP/3Q2K1 w - - 0 1",
+      "solution": [
+        "d1d5",
+        "g8h8",
+        "d5a8"
+      ],
+      "theme": "horquilla",
+      "rating": 850
+    },
+    {
+      "id": "horquilla-05",
+      "fen": "3q2k1/5ppp/8/8/8/8/6PP/R5K1 b - - 0 1",
+      "solution": [
+        "d8d4",
+        "g1h1",
+        "d4a1"
+      ],
+      "theme": "horquilla",
+      "rating": 875
+    },
+    {
+      "id": "mate-en-1-08",
+      "fen": "3rkr2/8/8/8/8/1Q6/8/6K1 w - - 0 1",
+      "solution": [
+        "b3e6"
+      ],
+      "theme": "mate-en-1",
+      "rating": 900
+    },
+    {
+      "id": "mate-en-1-23",
+      "fen": "5rk1/6p1/6P1/7Q/8/8/8/6K1 w - - 0 1",
+      "solution": [
+        "h5h7"
+      ],
+      "theme": "mate-en-1",
+      "rating": 900
+    },
+    {
+      "id": "horquilla-01",
+      "fen": "q3k3/pp3ppp/8/1N6/8/8/PP3PPP/4K3 w - - 0 1",
+      "solution": [
+        "b5c7",
+        "e8d7",
+        "c7a8"
+      ],
+      "theme": "horquilla",
+      "rating": 900
+    },
+    {
+      "id": "enfilada-01",
+      "fen": "3q4/8/8/3k4/8/8/8/R5K1 w - - 0 1",
+      "solution": [
+        "a1d1",
+        "d5e6",
+        "d1d8"
+      ],
+      "theme": "enfilada",
+      "rating": 900
+    },
+    {
+      "id": "mate-en-1-09",
+      "fen": "6k1/8/1q6/8/8/8/8/3RKR2 b - - 0 1",
+      "solution": [
+        "b6e3"
+      ],
+      "theme": "mate-en-1",
+      "rating": 925
+    },
+    {
+      "id": "mate-en-1-24",
+      "fen": "6k1/8/8/8/7q/6p1/6P1/5RK1 b - - 0 1",
+      "solution": [
+        "h4h2"
+      ],
+      "theme": "mate-en-1",
+      "rating": 925
+    },
+    {
+      "id": "horquilla-02",
+      "fen": "4k3/pp3ppp/8/8/1n6/8/PP3PPP/Q3K3 b - - 0 1",
+      "solution": [
+        "b4c2",
+        "e1d2",
+        "c2a1"
+      ],
+      "theme": "horquilla",
+      "rating": 925
+    },
+    {
+      "id": "enfilada-02",
+      "fen": "r5k1/8/8/8/3K4/8/8/3Q4 b - - 0 1",
+      "solution": [
+        "a8d8",
+        "d4e3",
+        "d8d1"
+      ],
+      "theme": "enfilada",
+      "rating": 925
+    },
+    {
+      "id": "mate-en-1-21",
+      "fen": "7k/R7/5N2/8/8/8/8/6K1 w - - 0 1",
+      "solution": [
+        "a7h7"
+      ],
+      "theme": "mate-en-1",
+      "rating": 950
+    },
+    {
+      "id": "clavada-01",
+      "fen": "4k3/8/4n3/8/3P4/8/8/4R1K1 w - - 0 1",
+      "solution": [
+        "d4d5",
+        "e8f7",
+        "d5e6"
+      ],
+      "theme": "clavada",
+      "rating": 950
+    },
+    {
+      "id": "mate-en-1-22",
+      "fen": "6k1/8/8/8/8/5n2/r7/7K b - - 0 1",
+      "solution": [
+        "a2h2"
+      ],
+      "theme": "mate-en-1",
+      "rating": 975
+    },
+    {
+      "id": "clavada-02",
+      "fen": "4r1k1/8/8/3p4/8/4N3/8/4K3 b - - 0 1",
+      "solution": [
+        "d5d4",
+        "e1f2",
+        "d4e3"
+      ],
+      "theme": "clavada",
+      "rating": 975
+    },
+    {
+      "id": "mate-en-1-19",
+      "fen": "5r2/4Nppk/8/3R4/8/8/8/6K1 w - - 0 1",
+      "solution": [
+        "d5h5"
+      ],
+      "theme": "mate-en-1",
+      "rating": 1000
+    },
+    {
+      "id": "clavada-03",
+      "fen": "4k3/8/2n5/1B6/3P4/8/8/4K3 w - - 0 1",
+      "solution": [
+        "d4d5",
+        "e8d8",
+        "d5c6"
+      ],
+      "theme": "clavada",
+      "rating": 1000
+    },
+    {
+      "id": "enfilada-03",
+      "fen": "8/7q/8/8/B3k3/8/8/6K1 w - - 0 1",
+      "solution": [
+        "a4c2",
+        "e4e5",
+        "c2h7"
+      ],
+      "theme": "enfilada",
+      "rating": 1000
+    },
+    {
+      "id": "mate-en-1-20",
+      "fen": "6k1/8/8/8/3r4/8/4nPPK/5R2 b - - 0 1",
+      "solution": [
+        "d4h4"
+      ],
+      "theme": "mate-en-1",
+      "rating": 1025
+    },
+    {
+      "id": "enfilada-04",
+      "fen": "6k1/8/8/b3K3/8/8/7Q/8 b - - 0 1",
+      "solution": [
+        "a5c7",
+        "e5e4",
+        "c7h2"
+      ],
+      "theme": "enfilada",
+      "rating": 1025
+    },
+    {
+      "id": "mate-en-2-06",
+      "fen": "k7/8/2K5/8/8/8/8/7R w - - 0 1",
+      "solution": [
+        "c6c7",
+        "a8a7",
+        "h1a1"
+      ],
+      "theme": "mate-en-2",
+      "rating": 1050
+    },
+    {
+      "id": "mate-en-2-01",
+      "fen": "7k/8/8/8/8/8/R7/1R4K1 w - - 0 1",
+      "solution": [
+        "b1b7",
+        "h8g8",
+        "a2a8"
+      ],
+      "theme": "mate-en-2",
+      "rating": 1100
+    },
+    {
+      "id": "mate-en-2-05",
+      "fen": "6k1/8/5K2/8/8/8/8/7Q w - - 0 1",
+      "solution": [
+        "h1h2",
+        "g8f8",
+        "h2h8"
+      ],
+      "theme": "mate-en-2",
+      "rating": 1100
+    },
+    {
+      "id": "ataque-descubierto-01",
+      "fen": "4q1k1/6pp/8/8/8/8/4BPPP/4R1K1 w - - 0 1",
+      "solution": [
+        "e2c4",
+        "g8h8",
+        "e1e8"
+      ],
+      "theme": "ataque-descubierto",
+      "rating": 1100
+    },
+    {
+      "id": "mate-en-2-02",
+      "fen": "1r4k1/r7/8/8/8/8/8/7K b - - 0 1",
+      "solution": [
+        "a7a2",
+        "h1g1",
+        "b8b1"
+      ],
+      "theme": "mate-en-2",
+      "rating": 1125
+    },
+    {
+      "id": "ataque-descubierto-02",
+      "fen": "4r1k1/4bppp/8/8/8/8/6PP/4Q1K1 b - - 0 1",
+      "solution": [
+        "e7c5",
+        "g1h1",
+        "e8e1"
+      ],
+      "theme": "ataque-descubierto",
+      "rating": 1125
+    },
+    {
+      "id": "mate-en-2-09",
+      "fen": "3k4/8/4K3/8/8/8/8/7R w - - 0 1",
+      "solution": [
+        "h1c1",
+        "d8e8",
+        "c1c8"
+      ],
+      "theme": "mate-en-2",
+      "rating": 1200
+    },
+    {
+      "id": "mate-en-2-10",
+      "fen": "3r2k1/5ppp/8/8/8/8/4QPPP/4R1K1 w - - 0 1",
+      "solution": [
+        "e2e8",
+        "d8e8",
+        "e1e8"
+      ],
+      "theme": "mate-en-2",
+      "rating": 1200
+    },
+    {
+      "id": "promocion-01",
+      "fen": "8/2P1k3/1q6/8/8/8/8/7K w - - 0 1",
+      "solution": [
+        "c7c8n",
+        "e7d7",
+        "c8b6"
+      ],
+      "theme": "promocion",
+      "rating": 1200
+    },
+    {
+      "id": "mate-en-2-11",
+      "fen": "4r1k1/4qppp/8/8/8/8/5PPP/3R2K1 b - - 0 1",
+      "solution": [
+        "e7e1",
+        "d1e1",
+        "e8e1"
+      ],
+      "theme": "mate-en-2",
+      "rating": 1225
+    },
+    {
+      "id": "promocion-02",
+      "fen": "7k/8/8/8/8/1Q6/2p1K3/8 b - - 0 1",
+      "solution": [
+        "c2c1n",
+        "e2d2",
+        "c1b3"
+      ],
+      "theme": "promocion",
+      "rating": 1225
+    },
+    {
+      "id": "mate-en-2-03",
+      "fen": "3r3k/6pp/7N/8/8/8/Q7/6K1 w - - 0 1",
+      "solution": [
+        "a2g8",
+        "d8g8",
+        "h6f7"
+      ],
+      "theme": "mate-en-2",
+      "rating": 1300
+    },
+    {
+      "id": "mate-en-2-04",
+      "fen": "6k1/q7/8/8/8/7n/6PP/3R3K b - - 0 1",
+      "solution": [
+        "a7g1",
+        "d1g1",
+        "h3f2"
+      ],
+      "theme": "mate-en-2",
+      "rating": 1325
+    },
+    {
+      "id": "mate-en-2-07",
+      "fen": "5r1k/4Nppp/8/7Q/8/8/8/K2R4 w - - 0 1",
+      "solution": [
+        "h5h7",
+        "h8h7",
+        "d1h1"
+      ],
+      "theme": "mate-en-2",
+      "rating": 1400
+    },
+    {
+      "id": "mate-en-2-08",
+      "fen": "k2r4/8/8/8/7q/8/4nPPP/5R1K b - - 0 1",
+      "solution": [
+        "h4h2",
+        "h1h2",
+        "d8h8"
+      ],
+      "theme": "mate-en-2",
+      "rating": 1425
+    }
+  ]
+}

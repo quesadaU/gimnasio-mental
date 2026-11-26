@@ -1,0 +1,148 @@
+/**
+ * Contenido de Lectura. Cada texto es un `ContentPack` propio que se carga con `import()` diferido
+ * (un chunk por texto). El catálogo solo lleva metadatos ligeros para la biblioteca; una prueba
+ * comprueba que coincide con los paquetes.
+ */
+
+import type { ContentLoader } from "@/core/types";
+import type { ReadingText, ReadingTextMeta } from "@/features/lectura/domain/types";
+
+export const LECTURA_CATALOG: readonly ReadingTextMeta[] = [
+  {
+    id: "cambiar-de-tarea",
+    title: "Cambiar de tarea tiene un precio",
+    summary: "Qué ocurre en la atención cuando saltamos de una tarea a otra, y por qué conviene elegir el foco.",
+    topic: "atencion",
+    level: "inicial",
+    words: 311,
+    sourceKind: "original",
+    author: "Equipo de Gimnasio Mental",
+  },
+  {
+    id: "machado-caminante",
+    title: "Caminante, no hay camino",
+    summary: "Un poema breve de Antonio Machado para leer despacio y más de una vez.",
+    topic: "literatura",
+    level: "inicial",
+    words: 50,
+    sourceKind: "dominio-publico",
+    author: "Antonio Machado (1875-1939)",
+  },
+  {
+    id: "correlacion-no-es-causa",
+    title: "Que dos cosas vayan juntas no significa que una cause la otra",
+    summary: "Tres maneras de explicar una correlación sin que haya causa directa, y cómo se intenta distinguirlas.",
+    topic: "pensamiento-critico",
+    level: "inicial",
+    words: 380,
+    sourceKind: "original",
+    author: "Equipo de Gimnasio Mental",
+  },
+  {
+    id: "recordar-para-aprender",
+    title: "Recordar también es aprender",
+    summary: "Por qué intentar recordar lo leído fija mejor el contenido que volver a leerlo, y por qué no lo parece.",
+    topic: "memoria",
+    level: "intermedio",
+    words: 428,
+    sourceKind: "original",
+    author: "Equipo de Gimnasio Mental",
+  },
+  {
+    id: "dormir-y-recordar",
+    title: "Lo que el sueño hace con lo aprendido",
+    summary: "Qué sabemos con bastante seguridad sobre sueño y memoria, y qué sigue en discusión.",
+    topic: "ciencia",
+    level: "intermedio",
+    words: 389,
+    sourceKind: "original",
+    author: "Equipo de Gimnasio Mental",
+  },
+  {
+    id: "por-que-cuesta-parar",
+    title: "Por qué cuesta tanto dejar de deslizar",
+    summary: "Recompensas impredecibles, ausencia de finales y algunas formas de recuperar los puntos de parada.",
+    topic: "atencion",
+    level: "intermedio",
+    words: 379,
+    sourceKind: "original",
+    author: "Equipo de Gimnasio Mental",
+  },
+  {
+    id: "sesgo-de-confirmacion",
+    title: "La regla del 2, 4, 6",
+    summary: "Un experimento clásico sobre por qué tendemos a buscar pruebas que nos den la razón.",
+    topic: "pensamiento-critico",
+    level: "intermedio",
+    words: 386,
+    sourceKind: "original",
+    author: "Equipo de Gimnasio Mental",
+  },
+  {
+    id: "la-caverna",
+    title: "Las sombras de la caverna",
+    summary: "Un repaso, con palabras propias, de la alegoría de la caverna de Platón y de algunas lecturas posibles.",
+    topic: "filosofia",
+    level: "intermedio",
+    words: 402,
+    sourceKind: "original",
+    author: "Equipo de Gimnasio Mental",
+  },
+  {
+    id: "manrique-coplas",
+    title: "Recuerde el alma dormida",
+    summary: "Las tres primeras coplas de Jorge Manrique: el paso del tiempo y la vida como un río.",
+    topic: "literatura",
+    level: "intermedio",
+    words: 144,
+    sourceKind: "dominio-publico",
+    author: "Jorge Manrique (c. 1440-1479)",
+  },
+  {
+    id: "papel-y-pantalla",
+    title: "Leer en papel, leer en pantalla",
+    summary: "Qué dicen los estudios sobre comprensión según el soporte, y por qué importa más el modo de leer.",
+    topic: "ciencia",
+    level: "avanzado",
+    words: 341,
+    sourceKind: "original",
+    author: "Equipo de Gimnasio Mental",
+  },
+  {
+    id: "que-hace-cientifica-una-idea",
+    title: "Qué hace científica una idea",
+    summary: "La falsabilidad de Popper, sus límites y por qué la repetición de resultados importa tanto.",
+    topic: "ciencia",
+    level: "avanzado",
+    words: 467,
+    sourceKind: "original",
+    author: "Equipo de Gimnasio Mental",
+  },
+  {
+    id: "quijote-del-mucho-leer",
+    title: "Del poco dormir y del mucho leer",
+    summary: "El comienzo del Quijote: un hidalgo que lee tanto que confunde los libros con el mundo.",
+    topic: "literatura",
+    level: "avanzado",
+    words: 411,
+    sourceKind: "dominio-publico",
+    author: "Miguel de Cervantes Saavedra (1547-1616)",
+  },
+];
+
+/** Un cargador por texto; la clave es el id estable del texto (y del paquete). */
+export const LECTURA_LOADERS: Readonly<Record<string, ContentLoader<ReadingText>>> = {
+  "cambiar-de-tarea": () => import("./textos/cambiar-de-tarea").then((m) => m.default),
+  "machado-caminante": () => import("./textos/machado-caminante").then((m) => m.default),
+  "correlacion-no-es-causa": () => import("./textos/correlacion-no-es-causa").then((m) => m.default),
+  "recordar-para-aprender": () => import("./textos/recordar-para-aprender").then((m) => m.default),
+  "dormir-y-recordar": () => import("./textos/dormir-y-recordar").then((m) => m.default),
+  "por-que-cuesta-parar": () => import("./textos/por-que-cuesta-parar").then((m) => m.default),
+  "sesgo-de-confirmacion": () => import("./textos/sesgo-de-confirmacion").then((m) => m.default),
+  "la-caverna": () => import("./textos/la-caverna").then((m) => m.default),
+  "manrique-coplas": () => import("./textos/manrique-coplas").then((m) => m.default),
+  "papel-y-pantalla": () => import("./textos/papel-y-pantalla").then((m) => m.default),
+  "que-hace-cientifica-una-idea": () =>
+    import("./textos/que-hace-cientifica-una-idea").then((m) => m.default),
+  "quijote-del-mucho-leer": () => import("./textos/quijote-del-mucho-leer").then((m) => m.default),
+};
