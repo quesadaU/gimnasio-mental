@@ -18,7 +18,10 @@ Gimnasio Mental: web para entrenar habilidades cognitivas (atención, memoria, l
 ## Sesión 2
 - `npm run build` ahora pasa (faltaba `"use client"` en los 6 juegos de atención y memoria).
 - Lectura terminada: `src/app/lectura/**` (biblioteca, `[texto]`, `repaso`) y componentes `library`, `reading-session`, `review-session`. Verificado en `next dev`: lectura, autoexplicación, preguntas, guardado, estado "Leído", repaso con reintento y Leitner. **No verificado**: móvil 390 px, teclado y lector de pantalla.
-- Habilidades sigue en `proximamente` en `modules-registry.ts` hasta tener rutas.
+- Habilidades terminado: `src/app/habilidades/**` (catálogo, temario de ruta, lección, repaso intercalado) y componentes `ejercicio-card` (los 6 tipos), `leccion-sesion`, `repaso-sesion`, `catalogo`, `temario`. Verificado en `next dev` con la lección «Variables y asignación»: fases, pistas, corrección, reintentos de recuperación, guardado, repaso entre rutas y cajas Leitner. Módulo activo en `modules-registry.ts`.
+- **No verificado**: móvil 390 px, teclado y lector de pantalla; ejercicios de tipo `ordenar` y `completar-codigo` con respuesta correcta (se probaron solo con respuesta errónea, la corrección está cubierta por pruebas de dominio); el resto de lecciones de las 5 rutas.
+- Aviso de desarrollo de Next (`instant-shell-url-data`): las páginas dinámicas (`/habilidades/[ruta]/[leccion]` y el mismo patrón en Patio, Lectura y Bienestar) leen `params` fuera de `<Suspense>`. No bloquea el build; pulir envolviendo el contenido en Suspense o con `export const instant = false`.
+- Si se sale de un repaso a medias, no se guardan las tarjetas (se guardan al final). Valorar guardar tarjeta a tarjeta como en Lectura.
 
 ## Resultado por módulo (cierre de la sesión 1)
 Verificado al cerrar: `npx tsc --noEmit` OK, `npm run lint` OK, `node --test` sobre todos los `*.test.ts`: 282/282. **`npm run build` NO se ha ejecutado tras el cierre** (hacerlo primero). Los agentes de Patio, Lectura y Habilidades se detuvieron antes de terminar por límite de sesión.
@@ -30,12 +33,12 @@ Verificado al cerrar: `npx tsc --noEmit` OK, `npm run lint` OK, `node --test` so
 | Patio: atención y memoria | Escritos los 6 juegos (Stroop, go/no-go, búsqueda visual, n-back, secuencias, pares) y su registro; su agente fue detenido al empezar la verificación | Abrir cada juego en el navegador y comprobar el recorrido completo, accesibilidad y el modo sin límite de tiempo |
 | Patio: lógica | Catálogo `/patio`, ejecutor `/patio/[juego]`, ajedrez con validador propio y banco de puzzles (agente detenido sin verificar el juego en navegador). Sudoku, patrones y deducción: solo dominio y pruebas | Escribir `SudokuGame.tsx`, `PatronesGame.tsx`, `DeduccionGame.tsx`, renombrar `index.ts.pendiente` a `index.ts` en cada carpeta y registrarlos en `registry-logica.ts` |
 | Lectura | **Hecho en la sesión 2** (ver arriba) | Revisión de accesibilidad y móvil |
-| Habilidades | Dominio, pruebas y contenido de 5 rutas en `src/content/habilidades` | **Faltan** rutas `src/app/habilidades/**`, componentes de lección y repaso, `index.ts` y registro |
+| Habilidades | **Hecho en la sesión 2** (ver arriba) | Revisión de accesibilidad y móvil |
 
 Los enlaces de navegación a `/lectura` y `/habilidades` pueden dar 404 hasta que se creen sus rutas. Valorar marcarlos como `proximamente` en `src/core/modules-registry.ts` mientras tanto.
 
 ## Pendiente para la siguiente sesión (orden recomendado)
-0. Terminar lo marcado como pendiente en la tabla anterior (prioridad: rutas de Lectura y Habilidades, componentes de sudoku/patrones/deducción).
+0. Terminar lo pendiente del Patio (componentes de sudoku/patrones/deducción) y verificar en navegador los juegos de atención y memoria.
 1. Ejecutar `npm run build`, `npx tsc --noEmit`, `npm run lint` y todas las pruebas (`node --test "src/**/*.test.ts"`) y corregir lo que falle.
 2. Recorrer cada pantalla en el navegador (móvil y escritorio): estados de carga, vacío y error.
 3. QA (`qa-specialist`): pruebas del núcleo (escalera, Leitner, ramas de `readVersioned`) y regresión.
