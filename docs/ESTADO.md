@@ -37,7 +37,7 @@ Los enlaces de navegación a `/lectura` y `/habilidades` pueden dar 404 hasta qu
 4. Accesibilidad (`accessibility`, WCAG 2.2 AA) y revisión UX (`ux-reviewer`), incluida la honestidad del texto (sin promesas clínicas).
 5. Seguridad (`security-audit`, `security-specialist`): XSS, importación de JSON, datos locales, cabeceras.
 6. ADR-0002 sobre el runner de pruebas (requiere autorización para instalar dependencias).
-7. Inicializar git y primer commit (el directorio aún no es repositorio). Sin trailer de coautoría de Claude en commits (preferencia del usuario).
+7. Git ya está inicializado y el remoto es `origin` (privado, `quesadaU/gimnasio-mental`). Commits sin trailer de coautoría de Claude (preferencia del usuario).
 8. Después: Progreso completo, exportar/importar, IndexedDB si hace falta, Recompensas y Rankings (fase 2, ver sección 9 de ARQUITECTURA.md).
 
 ## Decisiones abiertas
