@@ -137,7 +137,7 @@ export function Library() {
                     <h3 className="text-xl font-semibold text-ink">
                       <Link
                         href={`/lectura/${text.id}`}
-                        className="underline-offset-4 hover:underline focus-visible:outline-3 focus-visible:outline-offset-2"
+                        className="inline-flex min-h-11 items-center underline-offset-4 hover:underline"
                       >
                         {text.title}
                       </Link>

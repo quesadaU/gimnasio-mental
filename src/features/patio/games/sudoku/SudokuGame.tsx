@@ -195,7 +195,10 @@ export default function SudokuGame({ definition, initialLevel, onFinish, onExit 
         aria-describedby={instructionsId}
         className="mx-auto grid aspect-square w-full max-w-md grid-cols-9 border-2 border-line-strong bg-surface"
       >
-        {grid.map((value, index) => {
+        {Array.from({ length: 9 }, (_, row) => (
+          <div role="row" key={row} className="contents">
+        {grid.slice(row * 9, row * 9 + 9).map((value, col) => {
+          const index = row * 9 + col;
           const isGiven = given[index];
           const isConflict = conflicts.has(index);
           const isWrong = wrong.has(index);
@@ -239,7 +242,7 @@ export default function SudokuGame({ definition, initialLevel, onFinish, onExit 
               {value !== 0 ? (
                 value
               ) : notes[index] ? (
-                <span aria-hidden="true" className="grid h-full w-full grid-cols-3 p-px text-[0.5rem] leading-none sm:text-[0.6rem]">
+                <span aria-hidden="true" className="grid h-full w-full grid-cols-3 p-px text-[0.625rem] leading-none sm:text-xs">
                   {Array.from({ length: 9 }, (_, i) => (
                     <span key={i} className="flex items-center justify-center">
                       {notes[index] & (1 << (i + 1)) ? i + 1 : ""}
@@ -250,6 +253,8 @@ export default function SudokuGame({ definition, initialLevel, onFinish, onExit 
             </button>
           );
         })}
+          </div>
+        ))}
       </div>
 
       <div className="mx-auto grid w-full max-w-md grid-cols-5 gap-2 sm:grid-cols-10">

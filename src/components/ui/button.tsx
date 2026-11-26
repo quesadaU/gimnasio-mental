@@ -22,9 +22,9 @@ const VARIANTS: Record<ButtonVariant, string> = {
   ghost: "text-ink hover:bg-surface-2 underline-offset-4 hover:underline",
 };
 
-/* Tamaños con objetivo táctil mínimo de 44 px en md/lg y 36 px en sm (WCAG 2.5.8 exige 24 px). */
+/* Objetivo táctil de 44 px en todos los tamaños en móvil; `sm` baja a 36 px desde el breakpoint sm (WCAG 2.5.8 exige 24 px). */
 const SIZES: Record<ButtonSize, string> = {
-  sm: "min-h-9 px-3 text-sm",
+  sm: "min-h-11 px-3 text-sm sm:min-h-9",
   md: "min-h-11 px-5 text-base",
   lg: "min-h-13 px-7 text-lg",
 };

@@ -174,7 +174,7 @@ export function EjercicioCard({
       ) : null}
 
       {ejercicio.tipo === "completar-codigo" ? (
-        <pre className="overflow-x-auto rounded-md bg-surface-2 p-3 text-sm leading-10 text-ink">
+        <pre className="overflow-x-auto rounded-md bg-surface-2 p-3 text-sm leading-[3.25rem] text-ink">
           <code>
             {ejercicio.plantilla.split("___").map((trozo, i, todos) => (
               <span key={i}>
@@ -189,7 +189,7 @@ export function EjercicioCard({
                     autoCapitalize="off"
                     spellCheck={false}
                     className={
-                      "mx-1 inline-block min-h-9 w-32 rounded border bg-canvas px-2 font-mono text-sm " +
+                      "mx-1 inline-block min-h-11 w-32 rounded border bg-canvas px-2 font-mono text-sm " +
                       (correccion?.huecos
                         ? correccion.huecos[i]
                           ? "border-success"
