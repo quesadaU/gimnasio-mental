@@ -33,6 +33,12 @@ Gimnasio Mental: web para entrenar habilidades cognitivas (atención, memoria, l
 - Verificados en navegador (sesión 2, `next dev`, sin errores en consola): Stroop (60 ensayos, adaptativo hasta nivel 10, resumen), n-back (bloque completo, pausa y abandono guardado como «abandonada»), go/no-go (100 letras, frenadas 30/30), búsqueda visual (instrucciones, tiempos agotados y resumen), secuencias (acierto y fallo con la secuencia correcta mostrada), pares (5 rondas, 19 parejas) y ajedrez (pista, mostrar jugada, selección, jaque mate detectado, cierre).
 - **No verificado**: la precisión de búsqueda visual con respuestas correctas sostenidas (mi bot de prueba no la midió bien; solo se vio un acierto y el resto de pantallas con tiempo agotado); móvil 390 px, teclado completo y lector de pantalla en todos los juegos. Las respuestas anteriores a que aparezca el estímulo se ignoran en búsqueda visual (comportamiento a revisar si es intencionado).
 
+## Publicación
+- **En línea**: https://quesadau.github.io/gimnasio-mental/ (GitHub Pages, origen GitHub Actions; ver ADR-0003). El repositorio es público y **no tiene licencia** (decisión pendiente).
+- Cada push a `main` ejecuta `.github/workflows/pages.yml`: `next typegen`, tipos, lint, pruebas y build estático; si todo pasa, despliega. Verificado en producción: páginas 200, navegación suave, sesión de lectura completa con guardado local, sin errores en consola.
+- El historial usa el correo personal (se reescribió el 2026-11-26; hay una rama local `backup/antes-de-reescribir-correo` con el correo institucional, **no subida**: borrarla cuando ya no haga falta).
+- Pendiente antes de difundirla: auditoría de seguridad (`security-audit`), CSP por `<meta>` (Pages no permite cabeceras), pruebas del núcleo, lector de pantalla real y licencia.
+
 ## Resultado por módulo (cierre de la sesión 1)
 Verificado al cerrar: `npx tsc --noEmit` OK, `npm run lint` OK, `node --test` sobre todos los `*.test.ts`: 282/282. **`npm run build` NO se ha ejecutado tras el cierre** (hacerlo primero). Los agentes de Patio, Lectura y Habilidades se detuvieron antes de terminar por límite de sesión.
 

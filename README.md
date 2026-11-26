@@ -1,5 +1,7 @@
 # Gimnasio Mental
 
+**En línea: <https://quesadau.github.io/gimnasio-mental/>**
+
 Web para entrenar la atención, la memoria, el razonamiento y la lectura profunda, pensada como contrapeso al
 uso intensivo de feeds y asistentes. Todo funciona en tu navegador: **sin cuentas, sin servidor y sin
 seguimiento**. Tu progreso se guarda solo en este dispositivo.
