@@ -23,6 +23,8 @@ jobs:
           node-version: 24
           cache: npm
       - run: npm ci
+      # Next genera tipos globales (LayoutProps, PageProps) que un checkout limpio no tiene.
+      - run: npx next typegen
       # Puerta de calidad: si algo falla, no se publica.
       - run: npx tsc --noEmit
       - run: npm run lint
