@@ -28,7 +28,7 @@ export const MODULES: readonly ModuleDefinition[] = [
     description:
       "Rutas de aprendizaje de programación, matemáticas, filosofía y artes basadas en práctica de recuperación.",
     href: "/habilidades",
-    status: "activo",
+    status: "proximamente",
   },
   {
     slug: "bienestar",

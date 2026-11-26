@@ -1,3 +1,5 @@
+"use client";
+
 import { useEffect, useEffectEvent, useId, useRef, useState, type KeyboardEvent as ReactKeyboardEvent } from "react";
 import type { ExerciseProps } from "@/components/exercise/contract";
 import { Badge, Button, Card, CardBody, ProgressBar, SessionEndScreen } from "@/components/ui";
