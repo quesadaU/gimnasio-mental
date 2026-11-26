@@ -39,7 +39,11 @@ export function normalizarTexto(texto: string): string {
  * fracciones `a/b`, espacios y un `%` final. No admite separador de miles.
  */
 export function interpretarNumero(entrada: string): number | null {
-  const limpio = entrada.replace(/\s+/g, "").replace(/%$/, "").replace(",", ".");
+  const limpio = entrada
+    .replace(/\s+/g, "")
+    .replace(/[−–]/g, "-")
+    .replace(/%$/, "")
+    .replace(",", ".");
   if (limpio === "") return null;
   const fraccion = /^([+-]?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/.exec(limpio);
   if (fraccion) {
@@ -86,7 +90,7 @@ export function corregirNumerico(ejercicio: EjercicioNumerico, entrada: string):
   if (Math.abs(valor - ejercicio.respuesta) <= tolerancia + 1e-9) {
     return { correcto: true, retro: "Correcto.", explicacion: ejercicio.explicacion };
   }
-  const comun = ejercicio.erroresComunes?.find((error) => Math.abs(error.valor - valor) <= 1e-9);
+  const comun = ejercicio.erroresComunes?.find((error) => Math.abs(error.valor - valor) <= tolerancia + 1e-9);
   return {
     correcto: false,
     retro: comun?.retro ?? (valor > ejercicio.respuesta ? "Tu resultado es mayor que el correcto." : "Tu resultado es menor que el correcto."),

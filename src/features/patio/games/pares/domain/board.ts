@@ -8,6 +8,13 @@ import { PAIRS_SESSION } from "./params.ts";
 
 export type Rng = () => number;
 
+/** Ítem de contenido: cada símbolo tiene forma y nombre, nunca solo un color. */
+export interface PairSymbol {
+  id: string;
+  glyph: string;
+  name: string;
+}
+
 export interface PairCard {
   symbolId: string;
   matched: boolean;

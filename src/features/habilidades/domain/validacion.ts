@@ -64,7 +64,9 @@ export function validarEjercicio(ejercicio: Ejercicio, donde: string): string[] 
     case "numerica": {
       if (!Number.isFinite(ejercicio.respuesta)) e("respuesta no finita");
       for (const error of ejercicio.erroresComunes ?? []) {
-        if (Math.abs(error.valor - ejercicio.respuesta) <= (ejercicio.tolerancia ?? 0)) e("un error común coincide con la respuesta");
+        if (Math.abs(error.valor - ejercicio.respuesta) <= 2 * (ejercicio.tolerancia ?? 0) + 1e-9) {
+          e("un error común está dentro de la tolerancia de la respuesta");
+        }
       }
       break;
     }
