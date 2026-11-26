@@ -1,36 +1,76 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Gimnasio Mental
 
-## Getting Started
+Web para entrenar la atención, la memoria, el razonamiento y la lectura profunda, pensada como contrapeso al
+uso intensivo de feeds y asistentes. Todo funciona en tu navegador: **sin cuentas, sin servidor y sin
+seguimiento**. Tu progreso se guarda solo en este dispositivo.
 
-First, run the development server:
+> **Lo que no es.** Gimnasio Mental no promete subir tu CI, prevenir la demencia ni curar nada, y no
+> sustituye a un profesional. Entrena tareas concretas; la mejora que mide la investigación suele quedarse en
+> la tarea que se practica, por eso se propone alternar dominios.
+
+## Qué incluye
+
+| Módulo | Contenido |
+|---|---|
+| **Patio de juegos** | Stroop, go/no-go, búsqueda visual, n-back, secuencias, parejas, ajedrez táctico, sudoku, matrices de patrones y deducción lógica. Dificultad adaptativa (escalera 2-arriba/1-abajo). |
+| **Lectura** | Textos breves para leer sin distracciones, autoexplicación, preguntas de comprensión y repaso espaciado de las ideas clave. |
+| **Habilidades** | Rutas de programación, matemáticas, filosofía, artes y pensamiento crítico con ciclo explicación → intento → ejercicios → recuperación, y repaso intercalado. |
+| **Bienestar** | Respiración, atención plena, registro emocional e higiene digital, con recursos de ayuda. |
+| **Progreso** | Historial de sesiones, con exportación e importación de una copia en JSON. |
+
+Sin presión obligatoria: los juegos con tiempo de respuesta limitado ofrecen una opción de tiempo ampliado.
+
+## Stack
+
+Next.js 16 (App Router, TypeScript), React 19 y Tailwind CSS 4. Sin dependencias de ejecución añadidas al
+scaffold. Persistencia en `localStorage` con esquema versionado y migraciones.
+
+## Desarrollo
+
+Requiere Node.js 20 o superior.
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm ci
+npm run dev        # http://localhost:3000
+npm run lint
+npx tsc --noEmit
+node --test "src/**/*.test.ts"   # pruebas de dominio (node:test)
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Esta versión de Next tiene cambios incompatibles con versiones anteriores: consulta `AGENTS.md` y
+`node_modules/next/dist/docs/` antes de modificar rutas o configuración.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estructura
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/core/        Dominio compartido: tipos, dificultad adaptativa, repetición espaciada (Leitner), almacenamiento
+src/features/    Un módulo por carpeta (patio, lectura, habilidades, bienestar, progreso)
+src/content/     Contenido como datos tipados (textos, lecciones, puzzles), con carga diferida
+src/components/  Interfaz compartida y accesible
+docs/            Arquitectura (ARQUITECTURA.md), decisiones (adr/) y estado del proyecto (ESTADO.md)
+```
 
-## Learn More
+El dominio es TypeScript puro, independiente de React y de Next, y está cubierto por pruebas.
 
-To learn more about Next.js, take a look at the following resources:
+## Accesibilidad y privacidad
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Diseñado para móvil primero y WCAG 2.2 AA: HTML semántico, teclado, foco visible, contraste, movimiento reducido.
+- Sin cookies, sin analítica y sin peticiones a terceros. Los datos no salen del navegador.
+- El estado de la revisión de accesibilidad, con lo verificado y lo que no, está en [`docs/ESTADO.md`](docs/ESTADO.md).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Publicación en GitHub Pages
 
-## Deploy on Vercel
+La versión pública es una exportación estática (ver [ADR-0003](docs/adr/0003-publicacion-github-pages.md)).
+Para generarla en local:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```bash
+GITHUB_PAGES=true PAGES_REPO=gimnasio-mental npm run build   # salida en out/
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Un workflow de GitHub Actions ejecuta tipos, lint y pruebas, y solo si pasan publica el sitio.
+
+## Estado
+
+Proyecto en desarrollo. Consulta [`docs/ESTADO.md`](docs/ESTADO.md) para ver qué está hecho, qué se ha
+verificado y qué falta.
